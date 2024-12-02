@@ -2,18 +2,19 @@ import React from 'react';
 import './ProductList.css';
 import ProductCard from './ProductCard';
 
-function ProductList() {
-  const products = [
-    { id: 1, name: 'Laptop', price: '$999', image: 'https://via.placeholder.com/150' },
-    { id: 2, name: 'Phone', price: '$699', image: 'https://via.placeholder.com/150' },
-    { id: 3, name: 'Headphones', price: '$199', image: 'https://via.placeholder.com/150' },
-  ];
-
+function ProductList({ products }) {
   return (
-    <section className="product-list" id="products">
-      {products.map(product => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <section id="my-products" className="product-list">
+      <h2>My Products</h2>
+      {products.length === 0 ? (
+        <p>No products added yet. Start selling now!</p>
+      ) : (
+        <div className="product-grid">
+          {products.map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
