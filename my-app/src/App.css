@@ -1,11 +1,35 @@
-.app-container {
+/* Header Styling */
+.app-header {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
 }
 
+.app-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Body Styling */
 main {
-  flex: 1;
   padding: 20px;
-  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
 }

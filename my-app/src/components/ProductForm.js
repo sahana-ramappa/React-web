@@ -6,6 +6,7 @@ function ProductForm({ addProduct }) {
     name: '',
     price: '',
     image: null, // Image as a file
+    desc:''
   });
   const [preview, setPreview] = useState(null); // To preview uploaded image
 
@@ -26,10 +27,10 @@ function ProductForm({ addProduct }) {
     e.preventDefault();
     if (product.name && product.price && product.image) {
       addProduct(product); // Add product to the list
-      setProduct({ name: '', price: '', image: null });
+      setProduct({ name: '', price: '', image: null , desc:''});
       setPreview(null); // Clear form and preview
     } else {
-      alert('Please fill out all fields and upload an image.');
+      alert('Please fill out all fields');
     }
   };
 
@@ -37,43 +38,27 @@ function ProductForm({ addProduct }) {
     <section id="add-product" className="product-form">
       <h2>Add New Product</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Product Name:
-          <input
-            type="text"
-            name="name"
-            value={product.name}
-            onChange={handleChange}
-            placeholder="Enter product name"
-            required
-          />
+        <label> Product Name:
+          <input type="text" name="name" value={product.name} onChange={handleChange} placeholder="Enter product name" required />
         </label>
         <label>
           Price:
-          <input
-            type="number"
-            name="price"
-            value={product.price}
-            onChange={handleChange}
-            placeholder="Enter price"
-            required
-          />
+          <input type="number" name="price" value={product.price} onChange={handleChange}placeholder="Enter price" required />
         </label>
         <label>
           Upload Image:
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            required
-          />
+          <input type="file" accept="image/*" onChange={handleImageUpload} required />
         </label>
-        {preview && (
+        <label>
+          Description:
+          <input type="text" name="desc" value={product.desc} onChange={handleChange} placeholder="Enter Description" />
+        </label>
+        {/* {preview && (
           <div className="image-preview">
             <p>Image Preview:</p>
             <img src={preview} alt="Preview" className="preview-image" />
           </div>
-        )}
+        )} */}
         <button type="submit">Add Product</button>
       </form>
     </section>
