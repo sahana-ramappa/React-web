@@ -5,8 +5,8 @@ function ProductForm({ addProduct }) {
   const [product, setProduct] = useState({
     name: '',
     price: '',
-    image: null, // Image as a file
-    desc:''
+    image: null,
+    desc: ''
   });
   const [preview, setPreview] = useState(null); // To preview uploaded image
 
@@ -27,7 +27,7 @@ function ProductForm({ addProduct }) {
     e.preventDefault();
     if (product.name && product.price && product.image) {
       addProduct(product); // Add product to the list
-      setProduct({ name: '', price: '', image: null , desc:''});
+      setProduct({ name: '', price: '', image: null , desc:'' });
       setPreview(null); // Clear form and preview
     } else {
       alert('Please fill out all fields');
@@ -43,7 +43,7 @@ function ProductForm({ addProduct }) {
         </label>
         <label>
           Price:
-          <input type="number" name="price" value={product.price} onChange={handleChange}placeholder="Enter price" required />
+          <input type="number" name="price" value={product.price} onChange={handleChange} placeholder="Enter price" required />
         </label>
         <label>
           Upload Image:
@@ -53,12 +53,6 @@ function ProductForm({ addProduct }) {
           Description:
           <input type="text" name="desc" value={product.desc} onChange={handleChange} placeholder="Enter Description" />
         </label>
-        {/* {preview && (
-          <div className="image-preview">
-            <p>Image Preview:</p>
-            <img src={preview} alt="Preview" className="preview-image" />
-          </div>
-        )} */}
         <button type="submit">Add Product</button>
       </form>
     </section>
