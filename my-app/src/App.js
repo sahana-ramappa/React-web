@@ -43,7 +43,7 @@ function MainApp() {
     <>
       <header className="app-header">
         <div className="logo">
-          <Link to="/profile">SellEasy</Link>
+          <Link to="/profile" className='app-header'>SellEasy</Link>
         </div>
         <nav className="nav-links">
           <Link to="/add-product">Add Product</Link>

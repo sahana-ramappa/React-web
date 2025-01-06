@@ -9,18 +9,22 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
+    if (!username || !password) {
+      alert("Please enter both username and password.");
+      return;
+    }
+  
     try {
-        const response = await fetch('http://localhost:5001/api/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password }),
-          });
-          
-
+      const response = await fetch('http://localhost:5001/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         setIsLoggedIn(true); // Update auth state
         navigate("/"); // Redirect to the main app
@@ -32,10 +36,11 @@ function Login() {
       alert("Something went wrong. Please try again later.");
     }
   };
+  
 
   return (
     <div className="login-page">
-      <h1>Login</h1>
+      <h1>SellEasy</h1>
       <div className="login-form">
         <input
           type="text"

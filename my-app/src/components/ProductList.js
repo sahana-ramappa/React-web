@@ -19,7 +19,7 @@ function ProductList({ products, setProducts }) {
 
   return (
     <div className="product-list">
-      <h2>My Products</h2>
+      <h2>Products Details </h2>
       {products.length === 0 ? (
         <p>No products added yet. Start selling now!</p>
       ) : (
